@@ -18,17 +18,17 @@ const solution = (arr) => {
 
 const rotate = (arr) => {
   const lastElement = arr[arr.length - 1];
-  arr.splice(arr.length - 1, 1);
+  arr.pop();
   arr.unshift(lastElement);
   return arr;
 };
 
-const arraysAreEquals = (arr1, arr2) => {
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) return false;
-  }
-  return true;
-};
+function arraysAreEquals(a, b) {
+  return Array.isArray(a) &&
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every((val, index) => val === b[index]);
+}
 
 const test1 = solution([15, 18, 2, 3, 6, 12]);
 console.log(test1);
