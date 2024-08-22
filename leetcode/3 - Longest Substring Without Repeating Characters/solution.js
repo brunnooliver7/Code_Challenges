@@ -4,8 +4,8 @@
  */
 var lengthOfLongestSubstring = function (s) {
   let set = new Set();
-  let ws = -1;
-  let we = -1;
+  let ws = 0;
+  let we = 0;
   let maxValue = 0;
 
   for (let i = 0; i < s.length; i++) {
@@ -17,17 +17,17 @@ var lengthOfLongestSubstring = function (s) {
     }
 
     set.add(s[we]);
-    maxValue = Math.max(maxValue, set.size);
+    maxValue = Math.max(maxValue, we - ws + 1);
   }
 
-  return maxValue
+  return maxValue;
 };
 
-const t1 = lengthOfLongestSubstring("abcabcbb")
-console.log(t1)
+const t1 = lengthOfLongestSubstring("abcabcbb");
+console.log(t1);
 
-const t2 = lengthOfLongestSubstring("bbbbb")
-console.log(t2)
+const t2 = lengthOfLongestSubstring("bbbbb");
+console.log(t2);
 
-const t3 = lengthOfLongestSubstring("pwwkew")
-console.log(t3)
+const t3 = lengthOfLongestSubstring("pwwkew");
+console.log(t3);
